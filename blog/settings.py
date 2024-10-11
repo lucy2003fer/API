@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.post',
     'apps.user',
+    'apps.rol',
     
 ]
 

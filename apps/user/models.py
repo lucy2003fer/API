@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
-# Create your models here.
+from apps.rol.models import Rol 
 
 class User(AbstractUser):
-    pass
+    rol=models.ForeignKey(Rol, on_delete=models.SET_NULL,null=True)
