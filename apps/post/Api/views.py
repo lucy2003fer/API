@@ -4,10 +4,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from apps.post.models import Post
 from apps.post.api.serializers import PostSerializers
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 class PostModelViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = PostSerializers
     queryset = Post.objects.all()
+    #permisos metodos
+    http_method_names = ['get', 'post']
 
     '''def list(self, request):
         posts = self.queryset 
